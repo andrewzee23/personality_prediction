@@ -20,17 +20,17 @@ def contacts():
 
 @app.route('/data1')
 def data1():
-
+    # use these for json data
     return None
 
 @app.route('/data2')
 def data2():
-
+    # use these for json data
     return None
 
 @app.route('/data3')
 def data3():
-
+    # use these for json data
     return None
 
 if __name__ == "__main__":
