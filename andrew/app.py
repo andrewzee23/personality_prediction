@@ -6,7 +6,17 @@ app = Flask(__name__)
 @app.route('/homepage')
 def home():
 
-    return None
+    return render_template('index.html')
+
+@app.route('/visuals')
+def visuals():
+
+    return render_template('visuals.html')
+
+@app.route('/contact')
+def contacts():
+
+    return render_template('contact.html')
 
 @app.route('/data1')
 def data1():
