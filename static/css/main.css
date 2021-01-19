@@ -252,3 +252,8 @@
 .main-img-container {
     text-align: center;
 }
+
+#main-img {
+    height: 75%;
+    width: 75%;
+}
