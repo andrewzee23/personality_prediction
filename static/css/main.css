@@ -471,3 +471,14 @@
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+
+
+/* contact html  */
+.bio-links {
+    text-decoration: none;
+    color: #fff;
+}
+
+.bio-links:hover {
+    text-decoration: underline;
+}
