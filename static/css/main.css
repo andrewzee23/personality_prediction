@@ -206,6 +206,7 @@
     margin-top: 1rem;
     font-size: 2rem;
     font-weight: 700;
+    color: #fff;
 }
 
 .main-btn {
@@ -256,4 +257,59 @@
 #main-img {
     height: 75%;
     width: 75%;
+}
+
+/* media queries */
+
+@media screen and (max-width: 760px) {
+
+    .main-container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main-content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main-content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .main-content h2 {
+        font-size: 3rem;
+    }
+
+    .main-content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .main-content h2 {
+        font-size: 2rem;
+    }
+
+    .main-content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .main-btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
 }
