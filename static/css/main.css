@@ -266,7 +266,7 @@
 
 /* media queries */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
 
     .main-container {
         display: grid;
@@ -410,6 +410,15 @@
         font-size: 2rem;
         margin-top: 12rem;
     }
+
+    .user-inputs {
+        height: 1600px;
+    }
+
+    .user-inputs h1 {
+        font-size: 2rem;
+        margin-top: 12rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -425,4 +434,40 @@
     .services-card {
         width: 300px;
     }
+
+    .user-inputs {
+        height: 1400px;
+    }
+
+    .user-inputs h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* mbti inputs */
+.user-inputs {
+    background-color: #131313;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.user-inputs h1 {
+    background-color: #ff8177;
+    background-image: linear-gradient(to right, 
+    #ff8177 0%, 
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%);
+    background-size: 100%;
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
