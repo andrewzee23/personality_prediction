@@ -1,11 +1,26 @@
 import flask
 from flask import Flask, render_template, jsonify, request
+# from flask_wtf import FlaskForm
+# from wtforms import SubmitField, TextAreaField, IntegerField, FloatField
+# from wtforms.validators import DataRequired
+
+# class PredictorForm(FlaskForm):
+#     input1 = IntegerField('Input 1', validators=[DataRequired()])
+#     input2 = IntegerField('Input 2', validators=[DataRequired()])
+#     input3 = FloatField('Input 3', validators=[DataRequired()])
+#     input4 = FloatField('Input 4', validators=[DataRequired()])
+#     input5 = IntegerField('Input 5', validators=[DataRequired()])
+#     submit = SubmitField('Submit')
 
 app = Flask(__name__)
-@app.route('/homepage')
-def home():
 
-    return render_template('index.html')
+# app.config['SECRET_KEY'] = 'mbti'
+
+@app.route('/homepage', methods=['GET','POST'])
+def home():
+    # form = PredictorForm()
+
+    # return render_template('index.html', form=form)
 
 @app.route('/visuals')
 def visuals():
