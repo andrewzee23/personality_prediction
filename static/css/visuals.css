@@ -1,3 +1,6 @@
+body {
+    background-color: #131313;
+}
 /* visuals html */
 .container {
     display: grid;
@@ -27,4 +30,36 @@
     text-align: center;
     padding-left: 100px;
     padding-right: 100px;
+}
+
+.image-blur {
+    transition: 1s;
+    filter: brightness(10%);
+  }
+
+.img-text-wrapper:hover .subtitle {
+    color: lightseagreen;
+    font-weight: 600;
+}
+
+.img-text-wrapper .subtitle {
+    transition: 1s;
+    color: transparent;
+    font-weight: 600;
+}
+
+.img-title {
+    padding: 4px;
+    margin: 4px;
+}
+
+.img-text-wrapper:hover .img-title {
+    color: lightseagreen;
+    font-weight: 600;
+}
+
+.img-text-wrapper .img-title {
+    transition: 1s;
+    color: transparent;
+    font-weight: 600;
 }
