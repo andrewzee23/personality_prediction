@@ -54,13 +54,24 @@ body {
     margin: 4px;
 }
 
-.img-text-wrapper:hover .img-title {
+/* .img-text-wrapper:hover .img-title {
     color: lightseagreen;
+    font-weight: 600;
+} */
+ 
+.img-text-wrapper .img-title{
+    transition: 1s;
+    color: transparent;
     font-weight: 600;
 }
 
-.img-text-wrapper .img-title {
-    transition: 1s;
-    color: transparent;
+#title {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.img-text-wrapper:hover #title {
+    color: lightseagreen;
     font-weight: 600;
 }
