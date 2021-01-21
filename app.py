@@ -20,7 +20,8 @@ app = Flask(__name__)
 def home():
     # form = PredictorForm()
 
-    # return render_template('index.html', form=form)
+    return render_template('index.html')
+    #return render_template('index.html', form=form)
 
 @app.route('/visuals')
 def visuals():
