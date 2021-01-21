@@ -1,6 +1,7 @@
 body {
     background-color: #131313;
 }
+
 /* visuals html */
 .container {
     display: grid;
@@ -65,13 +66,13 @@ body {
     font-weight: 600;
 }
 
-#title {
-    text-decoration: none;
-    color: black;
+.img-text-wrapper:hover #title {
+    color: lightseagreen;
     font-weight: 600;
 }
 
-.img-text-wrapper:hover #title {
-    color: lightseagreen;
+#title {
+    text-decoration: none;
+    color: black;
     font-weight: 600;
 }
