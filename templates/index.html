@@ -74,6 +74,28 @@
 
         <div class="inputs-container">
 
+            <form action="/homepage" method="post">
+                <fieldset>
+
+                    <div class="form-label">
+                        {{ form.input1.label }}
+                    </div>
+                    <div class="form-input">
+                        {{ form.input1 }}
+                    </div>
+                        
+                </fieldset>
+
+                <div class="form-submit">
+                    {{ form.submit }}
+                </div>
+
+                <div class="form-predicition">
+                    {{ predicted }}
+                </div>
+                
+            </form>
+
 
         </div>
 
