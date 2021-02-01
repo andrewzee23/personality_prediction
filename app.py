@@ -1,33 +1,41 @@
 import flask
+import re
+import string
+import nltk
+import pandas as pd
+import joblib
 from flask import Flask, render_template, jsonify, request
-# from flask_wtf import FlaskForm
-# from wtforms import SubmitField, TextAreaField, IntegerField, FloatField
-# from wtforms.validators import DataRequired
+from flask_wtf import FlaskForm
+from wtforms import SubmitField, TextAreaField, IntegerField, FloatField
+from wtforms.validators import DataRequired
+from nltk.stem import PorterStemmer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
 
-# class PredictorForm(FlaskForm):
-#     input1 = IntegerField('Input 1', validators=[DataRequired()])
-#     input2 = IntegerField('Input 2', validators=[DataRequired()])
-#     input3 = FloatField('Input 3', validators=[DataRequired()])
-#     input4 = FloatField('Input 4', validators=[DataRequired()])
-#     input5 = IntegerField('Input 5', validators=[DataRequired()])
-#     submit = SubmitField('Submit')
+nltk.download('stopwords')
 
+
+class PredictorForm(FlaskForm):
+    input1 = TextAreaField('Input 1', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+# machine learning
 model_dict = joblib.load('count_vect_model.sav')
+stopwords = nltk.corpus.stopwords.words('english')
+ps = nltk.PorterStemmer()
 
 app = Flask(__name__)
 
-# app.config['SECRET_KEY'] = 'mbti'
+app.config['SECRET_KEY'] = 'mbti'
 
 @app.route('/homepage', methods=['GET','POST'])
 def home():
-    # form = PredictorForm()
+    form = PredictorForm()
 
     if request.method == 'POST':
         input_one_text = form.input1.data
-        input_two_text = form.input2.data
-        input_three_text = form.input3.data
-        input_four_text = form.input4.data
-        input_five_text = form.input5.data
+
 
         predicted_value = Predict(form)
 
@@ -64,27 +72,32 @@ def data3():
 @app.route("/data", methods=['GET', 'POST'])
 
 def Predict(honey):
+
     input1_df = honey.input1.data
-    input2_df = honey.input2.data
-    input3_df = honey.input3.data
-    input4_df = honey.input4.data
-    input5_df = honey.input5.data
 
 
     honey_predict_df = pd.DataFrame({
-        'Input 1': [input1_df],
-        'Input 2': [input2_df],
-        'Input 3': [input3_df],
-        'Input 4': [input4_df],
-        'Input 5': [input5_df]
+        'Input 1': [input1_df]
     })
 
-    # hive = model_dict['model']
-    # X_Scaler = model_dict['scaler']
-    # predict_df_scaled = X_Scaler.transform(honey_predict_df)
-    # predicted = hive.predict(predict_df_scaled)
+    def clean_posts(post):
 
-    return predicted
+        post = "".join([word.lower() for word in post if word not in string.punctuation])
+        tokens = re.split('\W+', post)
+        post = [ps.stem(word) for word in tokens if word not in stopwords]
+
+        return post
+
+    cleaned_df = clean_posts(honey_predict_df)
+
+    # print(cleaned_df)
+
+
+    count_vectorize = CountVectorizer(analyzer = clean_posts)
+    X_count = count_vectorize.fit_transform(honey_predict_df['Input 1'])
+    X_count_feature = pd.DataFrame(X_count.toarray())
+
+    return X_count_feature
 
 if __name__ == "__main__":
     app.run(debug=True)
