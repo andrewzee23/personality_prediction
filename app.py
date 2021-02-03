@@ -4,16 +4,19 @@ import string
 import nltk
 import pandas as pd
 import joblib
+import pickle
 from flask import Flask, render_template, jsonify, request
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, TextAreaField, IntegerField, FloatField
 from wtforms.validators import DataRequired
-from nltk.stem import PorterStemmer
+from nltk.stem import PorterStemmer, WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
 nltk.download('stopwords')
+
+lm = WordNetLemmatizer()
 
 
 class PredictorForm(FlaskForm):
@@ -21,7 +24,9 @@ class PredictorForm(FlaskForm):
     submit = SubmitField('Submit')
 
 # machine learning
-model_dict = joblib.load('count_vect_model.sav')
+# files = open('mbti_model.pickle', 'rb')
+# model = pickle.load(files)
+
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
 
@@ -80,24 +85,27 @@ def Predict(honey):
         'Input 1': [input1_df]
     })
 
-    def clean_posts(post):
+    files = open('mbti_model.pickle', 'rb')
+    model = pickle.load(files)
 
-        post = "".join([word.lower() for word in post if word not in string.punctuation])
-        tokens = re.split('\W+', post)
-        post = [ps.stem(word) for word in tokens if word not in stopwords]
+    # def clean_posts(post):
 
-        return post
+    #     post = "".join([word.lower() for word in post if word not in string.punctuation])
+    #     tokens = re.split('\W+', post)
+    #     post = [ps.stem(word) for word in tokens if word not in stopwords]
 
-    cleaned_df = clean_posts(honey_predict_df)
+    #     return post
 
-    # print(cleaned_df)
+    # cleaned_df = clean_posts(honey_predict_df)
+
+    # # print(cleaned_df)
 
 
-    count_vectorize = CountVectorizer(analyzer = clean_posts)
-    X_count = count_vectorize.fit_transform(honey_predict_df['Input 1'])
-    X_count_feature = pd.DataFrame(X_count.toarray())
+    # count_vectorize = CountVectorizer(analyzer = clean_posts)
+    # X_count = count_vectorize.fit_transform(honey_predict_df['Input 1'])
+    # X_count_feature = pd.DataFrame(X_count.toarray())
 
-    return X_count_feature
+    return None
 
 if __name__ == "__main__":
     app.run(debug=True)
