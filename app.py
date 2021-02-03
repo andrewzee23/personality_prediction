@@ -12,11 +12,10 @@ from wtforms.validators import DataRequired
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import GridSearchCV, train_test_split
 
 nltk.download('stopwords')
-
-lm = WordNetLemmatizer()
+nltk.download('wordnet')
 
 
 class PredictorForm(FlaskForm):
@@ -24,8 +23,8 @@ class PredictorForm(FlaskForm):
     submit = SubmitField('Submit')
 
 # machine learning
-# files = open('mbti_model.pickle', 'rb')
-# model = pickle.load(files)
+with open('mbti_model.pickle', 'rb') as f:
+    model = pickle.load(f)
 
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
@@ -85,27 +84,43 @@ def Predict(honey):
         'Input 1': [input1_df]
     })
 
-    files = open('mbti_model.pickle', 'rb')
-    model = pickle.load(files)
+    model_input = honey_predict_df['Input 1']
 
-    # def clean_posts(post):
+    posts = []
 
-    #     post = "".join([word.lower() for word in post if word not in string.punctuation])
-    #     tokens = re.split('\W+', post)
-    #     post = [ps.stem(word) for word in tokens if word not in stopwords]
+    stemmer = WordNetLemmatizer()
 
-    #     return post
+    for text in range(0, len(model_input)):
+        # Remove all the special characters
+        post = re.sub(r'\W', ' ', str(model_input[text]))
+        # remove all single characters
+        post = re.sub(r'\s+[a-zA-Z]\s+', ' ', post)
+        # Remove single characters from the start
+        post = re.sub(r'\^[a-zA-Z]\s+', ' ', post) 
+        # Substituting multiple spaces with single space
+        post = re.sub(r'\s+', ' ', post, flags=re.I)
+        # Removing prefixed 'b'
+        #post = re.sub(r'^b\s+', '', post)
+        # Converting to Lowercase
+        post = post.lower()
+        # Lemmatization
+        post = post.split()
+        post = [stemmer.lemmatize(word) for word in post]
+        post = ' '.join(post)
+        posts.append(post)
 
-    # cleaned_df = clean_posts(honey_predict_df)
-
-    # # print(cleaned_df)
-
+    # count_vect = CountVectorizer(max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords)
+    # X = count_vect.fit_transform(posts).toarray()
+    # X_train, X_test, y_train, y_test = train_test_split(model_input, y)
+    # rf_class = RandomForestClassifier(n_estimators=1000, random_state=0)
+    # rf_class.fit(X_train, y_train)
+    y_pred =model.predict(model_input)
 
     # count_vectorize = CountVectorizer(analyzer = clean_posts)
     # X_count = count_vectorize.fit_transform(honey_predict_df['Input 1'])
     # X_count_feature = pd.DataFrame(X_count.toarray())
 
-    return None
+    return y_pred
 
 if __name__ == "__main__":
     app.run(debug=True)
