@@ -26,6 +26,10 @@ class PredictorForm(FlaskForm):
 with open('mbti_model.pickle', 'rb') as f:
     model = pickle.load(f)
 
+with open('vector.pickle', 'rb') as cv:
+    vec = pickle.load(cv)
+
+
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
 
@@ -109,12 +113,17 @@ def Predict(honey):
         post = ' '.join(post)
         posts.append(post)
 
+    x = vec.fit_transform(posts).toarray()
+
+
+
+
     # count_vect = CountVectorizer(max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords)
     # X = count_vect.fit_transform(posts).toarray()
     # X_train, X_test, y_train, y_test = train_test_split(model_input, y)
     # rf_class = RandomForestClassifier(n_estimators=1000, random_state=0)
     # rf_class.fit(X_train, y_train)
-    y_pred =model.predict(model_input)
+    y_pred = model.predict(x)
 
     # count_vectorize = CountVectorizer(analyzer = clean_posts)
     # X_count = count_vectorize.fit_transform(honey_predict_df['Input 1'])
