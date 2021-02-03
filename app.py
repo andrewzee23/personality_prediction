@@ -19,7 +19,7 @@ nltk.download('wordnet')
 
 
 class PredictorForm(FlaskForm):
-    input1 = TextAreaField('Input 1', validators=[DataRequired()])
+    input1 = TextAreaField('Enter sentence here.', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
