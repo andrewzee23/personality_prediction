@@ -60,21 +60,6 @@ def contacts():
 
     return render_template('contact.html')
 
-@app.route('/data1')
-def data1():
-    # use these for json data
-    return None
-
-@app.route('/data2')
-def data2():
-    # use these for json data
-    return None
-
-@app.route('/data3')
-def data3():
-    # use these for json data
-    return None
-
 @app.route("/data", methods=['GET', 'POST'])
 
 def Predict(honey):
