@@ -81,7 +81,7 @@ body {
 
 .container-2 {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     margin-top: 25px;
     padding: 75px;
 }
