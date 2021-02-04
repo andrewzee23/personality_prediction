@@ -1,215 +1,137 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">	
-        <link rel='icon' href='../static/images/bee_cursor.png' type='image/x-icon'/ >
-        <title>The Beebox</title>
-        <meta name="description" content="Have you ever wondered what the impact the bee population has on our economy? Here we've used the past thirty years of data to show what the decline in bee populations has influenced so far, and what could happen if losses are not mitigated.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/12323bd54c.js" crossorigin="anonymous"></script>
-        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>MBTI Presentation</title>
+</head>
 <body>
-<body>
-    <div class="container-fluid"> 
-        <div class="row"> 
-            <div class="col-sm-3 col-md-2 col-lg-2 sidebar-styles">
-                <nav class="navbar navbar-light navbar-expand-sm px-0 flex-row flex-nowrap">
-                    <div class="sidebar-header">
-                        <h3>Weather Bees</h3>
-                        <img class="image-dimensions" src="/static/images/beehive_icon.png" alt="Mr.Weatherbee Himself">
-                        <ul class="list-unstyled-components" class="link-fonts" class="nav flex-sm-column flex-row">
-                        <br>
-                            <a href="/"><i class="fas fa-home"></i>&nbsp;Main</a>
-                            <li>
-                                <a href="https://github.com/Asia-Hewett/weather_bees"><i class="fas fa-fan"></i>&nbsp;About</a>
-                            <li>
-                                <a href="/charts"><i class="fa fa-bar-chart"></i>&nbsp;Charts</a>
-                            </li>
-                            <br>
-                            <p><strong>Resources</strong></p>
-                            <li>
-                                <a href="/data_used"><i class="fas fa-database"></i>&nbsp;Data</a>
-                            </li>
-                            <li>
-                                <a href="/visualizations"><i class="fas fa-chart-line"></i>&nbsp;Visualizations</a>
-                            </li>
-                            <li>
-                                <a href="/ml_walkthrough"><i class="fas fa-cogs"></i>&nbsp;ML Walkthrough</a>
-                            </li>
-                            <br>
-                            <p><strong>Contributors</strong>
-                            <br>
-                                <a href="https://github.com/KRuhl1662">Kristina |</a>
-                                <a href="https://github.com/gamem001">Melissa |</a>
-                                <a href="https://github.com/andrewzee23">Andrew |</a>
-                                <a href="https://asia-hewett.github.io/">Asia |</a>
-                                <a href="https://github.com/rmartinez944630">Rene</a>
-                            </p>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-sm-10 stretch">
-                <div class="row top-margins justify-content-center">
-                    <div class="col-sm-3"> 
-                        <div class="card">  
-                            <div class="my-card-body">
-                                <div class="card-front"> 
-                                    <br>
-                                    <h5>Bee Polination</h5> 
-                                    <p class="card-text"> 
-                                    <strong>
-                                        Did you know that about one third of the fruits and vegetables we eat are dependent on bees for polination? 
-                                    </strong>
-                                    </p>
-                                </div>
-                                <div class="card-back">
-                                    <br>
-                                    <p class="card-text"> 
-                                    <strong>
-                                        Apples, cranberries, melons, broccoli, blueberries and cherries are 90-percent dependent on bee pollination. Almonds, depend entirely on bees for pollination. 
-                                    </strong>
-                                    </p> 
-                                    <a href="https://www.abfnet.org/page/PollinatorFacts#:~:text=As%20honey%20bees%20gather%20pollen,for%20pollination%20at%20bloom%20time." class="btn btn-outline-primary btn-sm"> 
-                                        Learn More 
-                                    </a> 
-                                </div> 
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="col-sm-3"> 
-                        <div class="card">  
-                            <div class="my-card-body">
-                                <div class="card-front"> 
-                                    <br>
-                                    <h5>The Bees Knees</h5> 
-                                    <p class="card-text">
-                                    <strong> 
-                                        I'm sure you've all heard the famous phrasing, but have you ever wondered what it meant? 
-                                    </strong>
-                                    </p>
-                                </div>
-                                <div class="card-back">
-                                    <p class="card-text"> 
-                                    <br>
-                                    <strong>
-                                        Besides being a prohibition era inspired cocktail... nothing! Though bees have jointed legs, they do not possess a kneecap, and therefore do not have knees. 
-                                    </strong>
-                                    </p> 
-                                    <a href="https://www.liquor.com/recipes/bees-knees/" class="btn btn-outline-primary btn-sm"> 
-                                        Learn More 
-                                    </a> 
-                                </div> 
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="col-sm-3"> 
-                        <div class="card">  
-                            <div class="my-card-body">
-                                <div class="card-front"> 
-                                    <br>
-                                    <h5>It Truly Lasts Forever</h5>
-                                    <strong> 
-                                    <p class="card-text"> 
-                                        Honey has been called the only food that truly lasts forever, thanks to its magical chemistry and the handiwork of bees. 
-                                    </p>
-                                    </strong>
-                                </div>
-                                <div class="card-back">
-                                    <br>
-                                    <p class="card-text">
-                                    <strong> 
-                                        Honey was found in King Tut’s tomb, and, because it never spoils, it was still good! The oldest jar ever found is believed to be 5500 years old.
-                                    </strong>
-                                    </p> 
-                                    <a href="https://www.mcgill.ca/oss/article/did-you-know-history/king-tuts-sweet-tooth#:~:text=Among%20the%20treasures%20discovered%20during,sweet%20as%2C%20well%2C%20honey." class="btn btn-outline-primary btn-sm"> 
-                                        Learn More 
-                                    </a> 
-                                </div> 
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="col-sm-3"> 
-                        <div class="card">  
-                            <div class="my-card-body">
-                                <div class="card-front"> 
-                                    <br>
-                                    <strong>
-                                    <h5>Finicky Insects</h5> 
-                                    <p class="card-text"> 
-                                        Certain states are capable of caring for their colonies year round, but there are very strict environmental requirements for them to survive. 
-                                    </p>
-                                </div>
-                                <div class="card-back">
-                                    <br>
-                                    <p class="card-text"> 
-                                        Honey bees did not spread to Alaska until 1927. They thrive at 95 degrees but anything over 95 or anything below 42 degrees becomes deadly.
-                                    </p> 
-                                    <a href="https://sweetmountainfarm.com/index.php/new/cold-temperature-and-honey-bees#:~:text=Honey%20bees%20will%20keep%20the,cold%20temperature%20better%20than%20wind." class="btn btn-outline-primary btn-sm"> 
-                                        Learn More 
-                                    </a> 
-                                </div> 
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            <div class="row justify-content-center"> 
-                <div class="col-6">
-                    <img src="../static/images/honeycomb_tech.jpg" class="ml-dimensions second-row-top-margin" alt="Responsive image">
-                        <div class="ml-card card-img-overlay">
-                            <form action="/" method="post">
-                                <fieldset>
+    <nav class="navbar">
 
-                                    {{ form.deadout.label }}
-                                    {{ form.deadout }}
-                                    <br>
-                                    {{ form.pest.label }}
-                                    {{ form.pest }}
-                                    <br>
-                                    {{ form.num_colonies.label }}
-                                    {{ form.num_colonies }}
-                                    <br>
-                                    {{ form.temps.label }}
-                                    {{ form.temps }}
-                                    <br>
-                                    {{ form.cc_syn.label }}
-                                    {{ form.cc_syn }}
-                                        
-                                </fieldset>
-                                <div>
-                                {{ form.submit }} {{ predicted }}
-                                </div>
-                            </form>
-                        </div>
+        <div class="navbar-container">
+
+            <a href="/homepage" id="navbar-logo">MBTI Crew</a>
+
+            <div class="navbar-toggle" id="mobile-menu">
+
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+
+            </div>
+
+            <ul class="navbar-menu">
+
+                <li class="navbar-item">
+                    <a href="/homepage" class="navbar-links"> Home </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/visuals" class="navbar-links"> Visuals </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/contact" class="navbar-links"> Contact Us </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <!-- intro section -->
+    <div class="main">
+
+        <div class="main-container">
+
+            <div class="main-content">
+
+                <h1>PROJECT NAME/SLOGAN</h1>
+                <h2>SECOND LINE</h2>
+
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam labore ab vitae magnam natus, recusandae mollitia fuga consequatur enim et omnis minima dicta esse officiis dolore ipsum explicabo neque commodi?</p>
+
+                <button class="main-btn"><a href="/">More Info/Get Started</a></button>
+
+            </div>
+
+            <div class="main-img-container">
+                <img src="/static/images/intro_placeholder.svg" alt="cool img here" id="main-img">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- services/inputs section  -->
+    <div class="user-inputs">
+        
+        <h1> MBTI User Inputs </h1>
+
+        <div class="inputs-container">
+
+            <form action="/homepage" method="post">
+                <fieldset>
+
+                    <div class="form-label">
+                        {{ form.input1.label }}
                     </div>
-                <div class="col-6">
-                    <div class="plot-card second-row-top-margin">
-                        <div class="well">
-                            <h5 class="white-bar">Select Data Set:</h5>
-                            <select class="white-bar" id="selDataset"></select>
-                        </div>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                            </div>
-                            <div id="myDiv" class="panel-body"></div>            
-                        </div>
-                    </div>             
+                    <div class="form-input">
+                        {{ form.input1(cols='35', rows='20') }}
+                    </div>
+                        
+                </fieldset>
+
+                <div class="form-submit">
+                    {{ form.submit }}
                 </div>
+
+                <div class="form-predicition">
+                    {{ predicted }}
+                </div>
+                
+            </form>
+
+            <br>
+
+
+        </div>
+
+        <div id="dropdown">
+            <h1>Choose a Type:</h1>
+            <select name="food" id="" onchange="jsDropDown('cful','images',this.value)">
+                <option value="ENFJ">ENFJ</option>
+                <option value="ENFP">ENFP</option>
+                <option value="ENTJ">ENTJ</option>
+                <option value="ENTP">ENTP</option>
+                <option value="ESFJ">ESFJ</option>
+                <option value="ESFP">ESFP</option>
+                <option value="ESTJ">ESTJ</option>
+                <option value="ESTP">ESTP</option>
+                <option value="INFJ">INFJ</option>
+                <option value="INFP">INFP</option>
+                <option value="INTJ">INTJ</option>
+                <option value="INTP">INTP</option>
+                <option value="ISFJ">ISFJ</option>
+                <option value="ISFP">ISFP</option>
+                <option value="ISTJ">ISTJ</option>
+                <option value="ISTP">ISTP</option>
+            </select>
+    
+            <br>
+    
+            <div>
+                <img src="/static/images/file_ENFJ.jpg" id="cful" alt="">
             </div>
         </div>
+
     </div>
-</div>
-<script src="../static/js/logic_KR.js"></script>
-<script src="https://d3js.org/d3.v6.min.js"></script>
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="https://d3js.org/d3-color.v2.min.js"></script>
-<script src="https://d3js.org/d3-interpolate.v2.min.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="/static/js/app.js"></script>
 </body>
 </html>
