@@ -1,4 +1,4 @@
-# personality_prediction
+# Personality Prediction - Natural Language Processing with User Input
 
 1. **Retrieving a dataset**
 
