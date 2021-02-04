@@ -85,3 +85,11 @@ body {
     margin-top: 25px;
     padding: 75px;
 }
+
+.visual-img-bg2 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 750px;
+    width: 95%;
+}
