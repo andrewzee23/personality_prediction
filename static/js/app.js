@@ -19,3 +19,7 @@ portfolioItems.forEach(portfolioItem => {
     portfolioItem.childNodes[1].classList.remove('image-blur');
   });
 });
+
+function jsDropDown(imgid,folder,newimg) {
+  document.getElementById(imgid).src = '/static/' + folder + '/' + 'file_' + newimg + '.jpg'
+}
