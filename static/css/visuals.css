@@ -78,3 +78,10 @@ body {
     color: white;
     font-size: 24px;
 }
+
+.container-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 25px;
+    padding: 75px;
+}
