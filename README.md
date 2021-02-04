@@ -7,7 +7,7 @@
 
 2. **Cleaning the Dataset**
 
-    As we all know, our machines cannot train models on text without some simple tasks prior to the machine learning process. Below are some of the steps that were followed in our pre-processing phase.
+    As we all know, our machines cannot train models on text without some simple tasks prior to the machine learning process. Below are some of the steps that were followed in our [pre-processing](https://github.com/andrewzee23/personality_prediction/blob/main/melissa/data_cleaning_1.ipynb) phase.
 
     * Removing HTML tags
     * Removing extra spaces
@@ -17,13 +17,13 @@
     * Lemmatize
     * Tokenize
 
-3. **Training Dataset**
+3. **Training the Dataset**
    
-    We realized there were several different ways to tackle the Machine Learning process. The model that finally worked for us returned around a 61% accuracy rate. We simplified the tasks associated with the text_cleaning, applied a CountVectoriezer, and used a Random Forest Classifier. 
+    We realized there were several different ways to tackle the [Machine Learning process](https://github.com/andrewzee23/personality_prediction/blob/main/kristina/machine_learning_final.ipynb). The model that finally worked for us returned around a 61% accuracy rate. We simplified the tasks associated with the text_cleaning, applied a CountVectoriezer, and used a Random Forest Classifier. 
 
 4. **Flask**
 
-    The model that produced the best result was 'pickled' and applied to Flask. In addition to the model, the tasks for cleaning text was applied to Flask. 
+    The model that produced the best result was 'pickled' and applied to [Flask](https://github.com/andrewzee23/personality_prediction/blob/main/andrew/app.py). In addition to the model, the tasks for cleaning the text was applied to Flask. 
 
 5. **Web Application**
 
@@ -34,3 +34,13 @@
     Durinng the 'exploration' of the dataset, some graphs were created and are displayed on the web application.
 
 
+     * Violin Plot - Average Post Length
+     ![violin_avg_post_le](static/images/violin_avg_post_len.png)
+
+
+     * Violin Plot - Percent of Punctuation
+     ![violin_plot](static/images/violin_punct_perct.png)
+
+
+     * Pie Chart - Percent of each MBTI Type represented in dataset
+     ![pie_chart](static/images/pie_chart.png)
