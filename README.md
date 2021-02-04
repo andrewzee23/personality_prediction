@@ -23,7 +23,7 @@
 
 4. **Flask**
 
-    The model that produced the best result was 'pickled' and applied to [Flask](https://github.com/andrewzee23/personality_prediction/blob/main/andrew/app.py). In addition to the model, the tasks for cleaning the text was applied to Flask. 
+    The model that produced the best result was 'pickled' and applied to [Flask](https://github.com/andrewzee23/personality_prediction/blob/andrew/app.py). In addition to the model, the tasks for cleaning the text was applied to Flask. 
 
 5. **Web Application**
 
