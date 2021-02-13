@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>MBTI Crew - {{ title }}</title>
+    {% else %}
+        <title>MBTI Crew</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="navbar-container">
+
+            <a href="/" id="navbar-logo">MBTI Crew</a>
+
+            <div class="navbar-toggle" id="mobile-menu">
+
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+
+            </div>
+
+            <ul class="navbar-menu">
+
+                <li class="navbar-item">
+                    <a href="/" class="navbar-links"> Home </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/visuals" class="navbar-links"> Visuals </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/contact" class="navbar-links"> Contact Us </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

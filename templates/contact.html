@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/contacts.css') }}">
+{% endblock %}
+{% block content %}
+   <div class="services">
+        
+        <h1>Contact Us </h1>
+
+        <div class="services-container">
+
+            <div class="services-card">
+
+                <h2> Andrew </h2>
+                <button><a class="bio-links" href="https://www.linkedin.com/in/andrew-zamora/" target="_blank">Contact</a></button>
+
+            </div>
+            <div class="services-card">
+
+                <h2> Melissa </h2>
+                <button><a class="bio-links" href="https://www.linkedin.com/in/melissa-gamez-ruiz/" target="_blank">Contact</a></button>
+
+            </div>
+
+            <div class="services-card">
+
+                <h2> Kristina </h2>
+                <button><a class="bio-links" href="https://www.linkedin.com/in/kristina-ruhl/" target="_blank">Contact</a></button>
+
+            </div>
+
+        </div>
+
+    </div> 
+{% endblock %}

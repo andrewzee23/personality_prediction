@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/visuals.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="visual-item-wrapper">
+
+        <div class="img-text-wrapper">
+            <div class="img-title">
+                <a id="title" href="#"> Average Punction Usage (%) </a>
+            </div>
+            <br>
+        </div>
+
+        <div class="visual-img-bg" style="background-image:url(/static/images/violin_punct_perct.png)"></div>
+    </div>
+
+    <div class="visual-item-wrapper">
+
+        <div class="img-text-wrapper">
+            <div class="img-title">
+                <a id="title" href="#"> Average Post Length </a>
+            </div>
+            <br>
+        </div>
+        
+        <div class="visual-img-bg" style="background-image:url(/static/images/violin_avg_post_len.png)"></div>
+    </div>
+    <div class="visual-item-wrapper">
+
+        <div class="img-text-wrapper">
+            <div class="img-title">
+                <a id="title" href="#"> Percentage of MBTI Types in Data </a>
+            </div>
+            <br>
+        </div>
+        
+        <div class="visual-img-bg" style="background-image:url(/static/images/pie_chart.png); height: 650px;"></div>
+    </div>
+
+</div>
+{% endblock %}
